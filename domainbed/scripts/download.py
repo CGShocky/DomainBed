@@ -259,14 +259,31 @@ def download_sviro(data_dir):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Download datasets')
     parser.add_argument('--data_dir', type=str, required=True)
+    parser.add_argument('--datasets', nargs="*", default=["mnist"], type=str,
+                        help= """Supports : mnist, pacs, office_home, domain_net, vlcs, terra_incognita, sviro,
+                             Camelyon17Dataset FMoWDataset""")
     args = parser.parse_args()
 
-    # download_mnist(args.data_dir)
-    # download_pacs(args.data_dir)
-    # download_office_home(args.data_dir)
-    # download_domain_net(args.data_dir)
-    # download_vlcs(args.data_dir)
-    # download_terra_incognita(args.data_dir)
-    download_sviro(args.data_dir)
-    # Camelyon17Dataset(root_dir=args.data_dir, download=True)
-    # FMoWDataset(root_dir=args.data_dir, download=True)
+    dataset_list = args.datasets
+
+    for dataset in dataset_list:
+        if dataset == "mnist":
+            download_mnist(args.data_dir)
+        elif dataset == "pacs":
+            download_mnist(args.data_dir)
+        elif dataset == "office_home":
+            download_mnist(args.data_dir)
+        elif dataset == "domain_net":
+            download_mnist(args.data_dir)
+        elif dataset == "vlcs":
+            download_vlcs(args.data_dir)
+        elif dataset == "terra_incognita":
+            download_terra_incognita(args.data_dir)
+        elif dataset == "sviro":
+            download_sviro(args.data_dir)
+        elif dataset == "Camelyon17Dataset":
+            Camelyon17Dataset(root_dir=args.data_dir, download=True)
+        elif dataset == "FMoWDataset":
+            FMoWDataset(root_dir=args.data_dir, download=True)
+        else:
+            print(f"There is no dataset named {dataset} available.")
