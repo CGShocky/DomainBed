@@ -354,4 +354,4 @@ class WILDSFMoW(WILDSDataset):
         super().__init__(
             dataset, "region", test_envs, hparams['data_augmentation'], hparams)
 
-dataset = WILDSFMoW("/checkpoint/dlp/datasets_new/", [0], {"data_augmentation": True})
+#dataset = WILDSFMoW("/checkpoint/dlp/datasets_new/", [0], {"data_augmentation": True})
